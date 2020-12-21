@@ -82,10 +82,10 @@ p#loading-message{
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: 50vw 50vw;
-  grid-template-rows: 50vh 50vh;
+  grid-template-rows: 45vh 45vh;
   column-gap: 0vh;
   border: 1px solid black;
-  row-gap: 2vh;
+  row-gap: 0vh;
   justify-content: center;
 }
 
@@ -99,8 +99,6 @@ p#loading-message{
 #canvas2{
   grid-row: 1;
   grid-column: 1;
-  height: 50vh;
-  width: 50vw;
 }
 
 /*ツールチップ*/
