@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
 <!--    <meta name=“viewport” content=“width=device-width, initial-scale=1"> -->
 <!--    <meta name=“viewport” content=“width=device-width, initial-scale=1, user-scalable=no, maximum-scale=0.35, minimum-scale=0.35">-->
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
-    <p>だれもかれも</p>
+    <p id="midashi">だれもかれも</p>
     <div class="button-center">
       <span id="js-room-mode"></span>
       <!-- ボタン -->
       <button id="js-reload-trigger" class="btn">
-        <span class="pop"></span>
+        <span class="pop">リロード</span>
       </button>
       <button id="change" class="change">
-        <span class="pop"></span>
+        <span class="pop">キャラ<br>変更</span>
       </button>
       <button id="js-toggle-microphone" class="btn" data-toggle="tooltip" data-html="true" title="ミュート">
-        <span class="pop"></span>
+        <span class="pop">マイク<br>切替</span>
       </button>
       <button id="js-toggle-speaker" class="btn">
-        <span class="pop"></span>
+        <span class="pop">スピーカー<br>切替</span>
       </button>
       <button id="js-toggle-camera" class="btn">
-        <span class="pop"></span>
+        <span class="pop">カメラ<br>切替</span>
       </button>
       <button id="js-share-trigger" class="btn">
-        <span class="pop"></span>
+        <span class="pop">共有</span>
       </button>
       <button id="js-leave-trigger" class="btn">
-        <span class="pop"></span>
+        <span class="pop">退出 </span>
       </button>
     </div>
   </head>
@@ -38,17 +38,10 @@
     <!-- Loading -->
     <div id="loader-bg">
       <div id="loader">
-        <img src="https://kg-alien.s3-ap-northeast-1.amazonaws.com/lod2.gif" width="80" height="80" alt="Now Loading..." />
-        <p>Now Loading...</p>
+        <p id="load-message">Loading...</p>
+        <p id="loading-message">通話が開始されるまで<br>お待ちください...</p>
       </div>
     </div>
-    <!-- オーバーレイ
-    <div class=“overlay-all” id=“js-join-trigger”>
-      <img id=“top_wait” src=“./Top.png”><br>
-      <div id=“title_wait”>ALIEN</div>
-      <p id=“wait_message”>Tap to start video call</p>
-    </div>-->
-    
     <div class="container" style="position: relative;padding-top: 0px;">
       <div id="remote-streams">
         <div id="js-remote-streams"></div>

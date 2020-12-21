@@ -8,6 +8,8 @@ body {
 video {
   object-fit: unset;
   border-radius: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 #js-local-stream{
@@ -45,28 +47,34 @@ button#test1:hover {
 }
 
 /* Loading */
-#loader-bg {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: black;
+p#load-message{
+  font-family: 'bananaslipplus';
+  font-weight: bold;
+  padding: fixed;
+  text-align: left;
+  color:#707070;
+  font-size: 50px;
+  margin-left: 3vh;
+  letter-spacing: 5px;
   z-index: 101;
 }
-#loader {
+p#loading-message{
+  font-family: 'bananaslipplus';
+
+  position: fixed;
+  text-align: left;
+  color:#707070;
+  font-size: 30px;
+  margin-left: 3vh;
+  z-index: 102;
+}
+#loader-bg{
   display: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  margin-top: -100px;
-  margin-left: -100px;
-  text-align: center;
-  color: #fff;
-  z-index: 102;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
 }
 
 #js-remote-streams{
@@ -95,7 +103,52 @@ button#test1:hover {
   width: 50vw;
 }
 
+/*ツールチップ*/
+.btn,.change{
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  z-index: 2;
+}
+.btn,.change{
+  margin:0;
+  padding:0;
+}
+.pop {
+  display: none;
+  position: absolute;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.6em;
+  color: #fff;
+  border-radius: 5px;
+  background: #000;
+  width: 50px;
+}
+.pop:before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  right: 60%;
+  border: 10px solid transparent;
+  border-top: 15px solid #000;
+  margin-left: -15px;
+  transform: rotateZ(180deg);
+}
+.btn:hover .pop{
+  display: inline-block;
+  top: 65px;
+  left: 0px;
+}
+.change:hover .pop{
+  display: inline-block;
+  top: 65px;
+  left: 0px;
+}
+
 #js-toggle-camera{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -103,7 +156,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-camera:before {
@@ -128,7 +181,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-camera_OFF:before {
@@ -145,8 +198,10 @@ button#test1:hover {
 #js-toggle-camera_OFF:hover{
   background: #E26522;
 }
-
+/*マイク*/
 #js-toggle-microphone{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -154,7 +209,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-microphone:hover{
@@ -180,7 +235,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-microphone_OFF:hover{
@@ -197,8 +252,10 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 2px;
 }
-
+/*退出*/
 #js-leave-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background: #FF0404;
@@ -206,7 +263,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-leave-trigger:before {
@@ -218,8 +275,10 @@ button#test1:hover {
   background-size: contain;
   vertical-align: middle;
 }
-
+/*共有*/
 #js-share-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -227,7 +286,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-share-trigger:before {
@@ -243,8 +302,10 @@ button#test1:hover {
   background: #FFFFFF;
 }
 
-/*エイリアンボタンオンオフ実装予定(次サイクル)*/
+/*エイリアンボタン*/
 .change{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background: orange;
@@ -253,7 +314,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 .change:before {
@@ -273,7 +334,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 .change_changing:before {
@@ -287,6 +348,8 @@ button#test1:hover {
 }
 /* スピーカーボタン */
 #js-toggle-speaker{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
   background-color: #FFFFFF;
@@ -294,7 +357,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-speaker:hover{
@@ -321,7 +384,7 @@ button#test1:hover {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-toggle-speaker_OFF:hover{
@@ -338,16 +401,19 @@ button#test1:hover {
   margin-left: 4px;
   margin-top: 4px;
 }
+/*読み込み*/
 #js-reload-trigger{
+  margin: -3px;
+  border-style: solid;
   display: inline-block;
   text-decoration: none;
-  background: #22e2a2;
+  background: #FFFFFF;
   color: #FFF;
   width: 60px;
   height: 60px;
   line-height: 60px;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   transition: .4s;
 }
 #js-reload-trigger:before {
@@ -364,16 +430,28 @@ button#test1:hover {
   filter: brightness(0%);
 }
 
+
 .button-center{
   width: 100vw;
   text-align: right;
   position: absolute;
   top: 0vh;
   right: 0vw;
+  z-index: 90;
+}
+p#midashi{
+  font-family: 'bananaslipplus';
+  font-weight: bold;
+  text-align: left;
+  color: #707070;
+  margin-left: 2vw;
+  position: relative;
+  z-index: 91;
 }
 
 
-/* スタブレット写した時 */
+
+/* タブレット写した時 */
 @media screen and (max-width: 959px){
   /* 相手のビデオ画面変更 */
   #js-toggle-camera{

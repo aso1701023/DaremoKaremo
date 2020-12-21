@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
     <link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
-    <head>
-        <script src="./javascripts/index.js"></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>だれもかれも</title>
-    </head>
-    <body>
-        <div id="title_id">だれもかれも</div>
-        <form action="./views/Waiting.html" method="GET">
-            <input type="hidden" id="roomid" name="roomid">
-            <div id="makeroom">
-                <input type="submit" id="room_make" value="部屋を作る">
-            </div>
-        </form>
-    </body>
+<head>
+    <script src="./javascripts/index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>だれもかれも</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+    <script src="./javascripts/OBJLoader.js"></script>
+    <script src="./javascripts/MTLLoader.js"></script>
+    
+    <div id="BG"></div>
+    <div id="title_id">だれもかれも</div>
+    
+    <form action="./views/Waiting.html" method="GET">
+        <input type="hidden" id="roomid" name="roomid">
+        <div id="makeroom">
+            <input type="submit" id="room_make" value="部屋を作る">
+        </div>
+    </form>
+    <!--<script src="./javascripts/index3D.js"></script>-->
+</body>
 </html>
-
